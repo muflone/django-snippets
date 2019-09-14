@@ -18,5 +18,6 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
+from .folder import Folder, FolderAdmin                           # noqa: F401
 from .language import Language, LanguageAdmin                     # noqa: F401
 from .workbook import Workbook, WorkbookAdmin                     # noqa: F401

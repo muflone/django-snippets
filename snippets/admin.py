@@ -20,8 +20,10 @@
 
 from django.contrib import admin
 
-from .models import (Language, LanguageAdmin,
+from .models import (Folder, FolderAdmin,
+                     Language, LanguageAdmin,
                      Workbook, WorkbookAdmin)
 
+admin.site.register(Folder, FolderAdmin)
 admin.site.register(Language, LanguageAdmin)
 admin.site.register(Workbook, WorkbookAdmin)
