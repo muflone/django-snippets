@@ -22,8 +22,10 @@ from django.contrib import admin
 
 from .models import (Folder, FolderAdmin,
                      Language, LanguageAdmin,
+                     Snippet, SnippetAdmin,
                      Workbook, WorkbookAdmin)
 
 admin.site.register(Folder, FolderAdmin)
 admin.site.register(Language, LanguageAdmin)
+admin.site.register(Snippet, SnippetAdmin)
 admin.site.register(Workbook, WorkbookAdmin)

@@ -20,4 +20,5 @@
 
 from .folder import Folder, FolderAdmin                           # noqa: F401
 from .language import Language, LanguageAdmin                     # noqa: F401
+from .snippet import Snippet, SnippetAdmin                        # noqa: F401
 from .workbook import Workbook, WorkbookAdmin                     # noqa: F401
