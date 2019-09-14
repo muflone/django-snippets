@@ -19,3 +19,4 @@
 ##
 
 from .language import Language, LanguageAdmin                     # noqa: F401
+from .workbook import Workbook, WorkbookAdmin                     # noqa: F401

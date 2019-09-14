@@ -20,6 +20,8 @@
 
 from django.contrib import admin
 
-from .models import Language, LanguageAdmin
+from .models import (Language, LanguageAdmin,
+                     Workbook, WorkbookAdmin)
 
 admin.site.register(Language, LanguageAdmin)
+admin.site.register(Workbook, WorkbookAdmin)
