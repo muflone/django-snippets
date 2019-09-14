@@ -18,6 +18,29 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from .base_model import BaseModel, BaseModelAdmin                 # noqa: F401
-from .admin_list_display import (AdminListDisplay,                # noqa: F401
-                                 AdminListDisplayAdmin)           # noqa: F401
+from django.contrib import admin
+from django.db.utils import OperationalError
+
+from .models import AdminListDisplay, AdminListDisplayAdmin
+
+from utility.misc import get_admin_models
+
+
+admin.site.register(AdminListDisplay, AdminListDisplayAdmin)
+
+admin_models = get_admin_models()
+
+# Customize list_display
+try:
+    # Clear or initialize the model list_display
+    for model_name in admin_models:
+        admin_models[model_name].list_display = []
+    # Add the fields to model list_display
+    for item in AdminListDisplay.objects.filter(enabled=True).order_by(
+            'model', 'order'):
+        # Include only existing models
+        if item.model in admin_models:
+            admin_models[item.model].list_display.append(item.field)
+except OperationalError:
+    # If the model AdminListDisplay doesn't yet exist skip the customization
+    pass

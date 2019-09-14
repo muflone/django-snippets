@@ -18,6 +18,4 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from .base_model import BaseModel, BaseModelAdmin                 # noqa: F401
-from .admin_list_display import (AdminListDisplay,                # noqa: F401
-                                 AdminListDisplayAdmin)           # noqa: F401
+from .get_admin_models import get_admin_models                    # noqa: F401
