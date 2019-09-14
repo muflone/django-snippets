@@ -38,7 +38,7 @@ class Folder(BaseModel):
                                                               'description'))
     order = models.PositiveIntegerField(default=0,
                                         verbose_name=pgettext_lazy('Folder',
-                                                                    'order'))
+                                                                   'order'))
 
     class Meta:
         # Define the database table

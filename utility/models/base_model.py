@@ -21,6 +21,7 @@
 from django.contrib import admin
 from django.db import models
 
+
 class BaseModel(models.Model):
     def __init__(self, *args, **kwargs):
         """Base model for each other model in the application"""

@@ -46,7 +46,7 @@ class Snippet(BaseModel):
                                                             'language'))
     order = models.PositiveIntegerField(default=0,
                                         verbose_name=pgettext_lazy('Snippet',
-                                                                    'order'))
+                                                                   'order'))
 
     class Meta:
         # Define the database table
