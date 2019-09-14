@@ -48,7 +48,8 @@ class Folder(BaseModel):
         verbose_name_plural = pgettext_lazy('Folder', 'Folders')
 
     def __str__(self):
-        return self.name
+        return '{WORKBOOK} > {NAME}'.format(WORKBOOK=self.workbook,
+                                            NAME=self.name)
 
 
 class FolderAdmin(BaseModelAdmin):
