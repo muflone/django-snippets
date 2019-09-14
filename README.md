@@ -1,6 +1,6 @@
 # Django Snippets
 
-**Description:** A Django application to organize Code snippets
+**Description:** A Django application to organize code snippets
 
 **Copyright:** 2019 Fabio Castelli (Muflone) <muflone@muflone.com>
 

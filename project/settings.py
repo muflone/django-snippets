@@ -1,6 +1,6 @@
 ##
 #     Project: Django Snippets
-# Description: A Django application to organize Code snippets
+# Description: A Django application to organize code snippets
 #      Author: Fabio Castelli (Muflone) <muflone@muflone.com>
 #   Copyright: 2019 Fabio Castelli
 #     License: GPL-3+
