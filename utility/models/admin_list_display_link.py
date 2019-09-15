@@ -47,7 +47,7 @@ class AdminListDisplayLink(BaseModel):
 
     class Meta:
         # Define the database table
-        db_table = 'website_admin_list_display_links'
+        db_table = 'utility_admin_list_display_links'
         ordering = ['model', 'order']
         unique_together = (('model', 'field'),
                            ('model', 'order'))

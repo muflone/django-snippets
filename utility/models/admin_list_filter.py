@@ -46,7 +46,7 @@ class AdminListFilter(BaseModel):
 
     class Meta:
         # Define the database table
-        db_table = 'website_admin_list_filters'
+        db_table = 'utility_admin_list_filters'
         ordering = ['model', 'order']
         unique_together = (('model', 'field'),
                            ('model', 'order'))
