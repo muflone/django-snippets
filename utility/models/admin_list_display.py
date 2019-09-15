@@ -48,7 +48,7 @@ class AdminListDisplay(BaseModel):
     class Meta:
         # Define the database table
         db_table = 'utility_admin_list_display'
-        ordering = ['model', 'order', 'field']
+        ordering = ['model', 'order']
         unique_together = (('model', 'field'),
                            ('model', 'order'))
         verbose_name = pgettext_lazy('AdminListDisplay',

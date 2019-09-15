@@ -43,7 +43,7 @@ class Folder(BaseModel):
     class Meta:
         # Define the database table
         db_table = 'snippets_folders'
-        ordering = ['name']
+        ordering = ['workbook', 'order', 'name']
         verbose_name = pgettext_lazy('Folder', 'Folder')
         verbose_name_plural = pgettext_lazy('Folder', 'Folders')
 

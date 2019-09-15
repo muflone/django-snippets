@@ -51,7 +51,7 @@ class Snippet(BaseModel):
     class Meta:
         # Define the database table
         db_table = 'snippets_snippets'
-        ordering = ['name']
+        ordering = ['folder', 'order', 'name']
         unique_together = ('folder', 'name')
         verbose_name = pgettext_lazy('Snippet', 'Snippet')
         verbose_name_plural = pgettext_lazy('Snippet', 'Snippets')

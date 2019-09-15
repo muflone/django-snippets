@@ -48,7 +48,7 @@ class AdminListDisplayLink(BaseModel):
     class Meta:
         # Define the database table
         db_table = 'website_admin_list_display_links'
-        ordering = ['model', 'order', 'field']
+        ordering = ['model', 'order']
         unique_together = (('model', 'field'),
                            ('model', 'order'))
         verbose_name = pgettext_lazy('AdminListDisplayLink',
