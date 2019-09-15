@@ -30,7 +30,6 @@ class Folder(BaseModel):
                                  verbose_name=pgettext_lazy('Folder',
                                                             'workbook'))
     name = models.CharField(max_length=255,
-                            unique=True,
                             verbose_name=pgettext_lazy('Folder',
                                                        'name'))
     description = models.TextField(blank=True,
@@ -44,6 +43,7 @@ class Folder(BaseModel):
         # Define the database table
         db_table = 'snippets_folders'
         ordering = ['workbook', 'order', 'name']
+        unique_together = ('workbook', 'name')
         verbose_name = pgettext_lazy('Folder', 'Folder')
         verbose_name_plural = pgettext_lazy('Folder', 'Folders')
 
