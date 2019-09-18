@@ -23,9 +23,9 @@ from snippets.models import Snippet, Workbook, Folder
 from utility.views import GenericView
 
 
-class SnippetsView(GenericView):
-    """Snippets view"""
-    template_name = 'snippets/snippets.html'
+class FolderView(GenericView):
+    """Folder view"""
+    template_name = 'snippets/folder.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

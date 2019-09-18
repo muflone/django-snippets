@@ -20,5 +20,5 @@
 
 from .index import IndexView
 from .workbook import WorkbookView
-from .snippets import SnippetsView
+from .folder import FolderView
 from .snippet import SnippetView

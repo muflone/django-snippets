@@ -16,7 +16,7 @@
   {% endfor %}
     <div>Go back to <a href="{% url 'snippets.index' %}">Index</a></div>
     <div>Go back to workbook <a href="{% url 'snippets.workbook' workbook_id=workbook.pk %}">{{ workbook.name }}</a></div>
-    <div>Go back to folder <a href="{% url 'snippets.snippets' workbook_id=workbook.pk folder_id=folder.pk %}">{{ folder.name }}</a></div>
+    <div>Go back to folder <a href="{% url 'snippets.folder' workbook_id=workbook.pk folder_id=folder.pk %}">{{ folder.name }}</a></div>
     <hr />
 
     <pre>{{ snippet.code }}</pre>

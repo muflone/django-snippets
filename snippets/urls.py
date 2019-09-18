@@ -31,11 +31,11 @@ urlpatterns = [
          '<int:workbook_id>/',
          view=views.WorkbookView.as_view(),
          name='snippets.workbook'),
-    path('snippets/'
+    path('folder/'
          '<int:workbook_id>/'
          '<int:folder_id>/',
-         view=views.SnippetsView.as_view(),
-         name='snippets.snippets'),
+         view=views.FolderView.as_view(),
+         name='snippets.folder'),
     path('snippet/'
          '<int:workbook_id>/'
          '<int:folder_id>/'
