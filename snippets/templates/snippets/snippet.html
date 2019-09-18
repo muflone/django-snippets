@@ -11,9 +11,7 @@
 {% endblock %}
 
 {% block content %}
-  {% for line in page_content %}
-    <p>{{ line }}</p>
-  {% endfor %}
+    <p>{{ page_content }}</p>
     <div>Go back to <a href="{% url 'snippets.index' %}">Index</a></div>
     <div>Go back to workbook <a href="{% url 'snippets.workbook' workbook_id=workbook.pk %}">{{ workbook.name }}</a></div>
     <div>Go back to folder <a href="{% url 'snippets.folder' workbook_id=workbook.pk folder_id=folder.pk %}">{{ folder.name }}</a></div>

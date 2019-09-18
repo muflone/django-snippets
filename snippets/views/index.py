@@ -29,7 +29,8 @@ class IndexView(GenericView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['page_title'] = 'Index'
-        context['page_content'] = ('Index',)
+        title = 'Index'
+        context['page_title'] = title
+        context['page_content'] = title
         context['workbooks'] = Workbook.objects.all().order_by('name')
         return context

@@ -29,8 +29,9 @@ class FolderView(GenericView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['page_title'] = 'Folder'
-        context['page_content'] = ('Folder',)
+        title = 'Folder'
+        context['page_title'] = title
+        context['page_content'] = title
         context['workbook'] = Workbook.objects.get(id=context['workbook_id'])
         context['folder'] = Folder.objects.get(id=context['folder_id'])
         context['snippets'] = Snippet.objects.filter(
