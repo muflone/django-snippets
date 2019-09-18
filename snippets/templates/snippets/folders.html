@@ -15,7 +15,7 @@
     <p>{{ line }}</p>
   {% endfor %}
 
-  {% for item in data %}
+  {% for item in folders %}
     <div><a href="{% url 'snippets.snippets' folder_id=item.pk %}">{{ item.name }}</a> <small>{{ item.description }}</small></div>
   {% endfor %}
 {% endblock %}

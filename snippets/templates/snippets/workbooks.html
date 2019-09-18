@@ -15,7 +15,7 @@
     <p>{{ line }}</p>
   {% endfor %}
 
-  {% for item in data %}
+  {% for item in workbooks %}
     <div><a href="{% url 'snippets.folders' workbook_id=item.pk %}">{{ item.name }}</a> <small>{{ item.description }}</small></div>
   {% endfor %}
 {% endblock %}

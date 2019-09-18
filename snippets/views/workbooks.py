@@ -31,5 +31,5 @@ class WorkbooksView(GenericView):
         context = super().get_context_data(**kwargs)
         context['page_title'] = 'Index'
         context['page_content'] = ('Index',)
-        context['data'] = Workbook.objects.all().order_by('name')
+        context['workbooks'] = Workbook.objects.all().order_by('name')
         return context
