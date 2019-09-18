@@ -23,9 +23,9 @@ from snippets.models import Workbook
 from utility.views import GenericView
 
 
-class WorkbooksView(GenericView):
-    """Workbooks view"""
-    template_name = 'snippets/workbooks.html'
+class IndexView(GenericView):
+    """Index view"""
+    template_name = 'snippets/index.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

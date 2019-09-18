@@ -24,9 +24,9 @@ from . import views
 
 
 urlpatterns = [
-    path('workbooks/',
-         view=views.WorkbooksView.as_view(),
-         name='snippets.workbooks'),
+    path('',
+         view=views.IndexView.as_view(),
+         name='snippets.index'),
     path('folders/'
          '<int:workbook_id>/',
          view=views.FoldersView.as_view(),

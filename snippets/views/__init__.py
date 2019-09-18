@@ -18,7 +18,7 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from .workbooks import WorkbooksView
+from .index import IndexView
 from .folders import FoldersView
 from .snippets import SnippetsView
 from .snippet import SnippetView
