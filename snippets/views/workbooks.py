@@ -18,13 +18,18 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from django.urls import path
+from snippets.models import Workbook
 
-from . import views
+from utility.views import GenericView
 
 
-urlpatterns = [
-    path('workbooks/',
-         view=views.WorkbooksView.as_view(),
-         name='snippets.workbooks'),
-]
+class WorkbooksView(GenericView):
+    """Workbooks view"""
+    template_name = 'snippets/workbooks.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['page_title'] = 'title'
+        context['page_content'] = ('hello world',)
+        context['data'] = Workbook.objects.all().order_by('name')
+        return context
