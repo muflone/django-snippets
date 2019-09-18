@@ -20,3 +20,4 @@
 
 from .workbooks import WorkbooksView
 from .folders import FoldersView
+from .snippets import SnippetsView
