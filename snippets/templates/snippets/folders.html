@@ -18,6 +18,6 @@
     <hr />
 
   {% for item in folders %}
-    <div><a href="{% url 'snippets.snippets' folder_id=item.pk %}">{{ item.name }}</a> <small>{{ item.description }}</small></div>
+    <div><a href="{% url 'snippets.snippets' workbook_id=workbook.pk folder_id=item.pk %}">{{ item.name }}</a> <small>{{ item.description }}</small></div>
   {% endfor %}
 {% endblock %}

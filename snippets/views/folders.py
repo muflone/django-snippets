@@ -18,7 +18,7 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from snippets.models import Folder
+from snippets.models import Folder, Workbook
 
 from utility.views import GenericView
 
@@ -31,6 +31,7 @@ class FoldersView(GenericView):
         context = super().get_context_data(**kwargs)
         context['page_title'] = 'Workbook'
         context['page_content'] = ('Workbook',)
+        context['workbook'] = Workbook.objects.get(id=context['workbook_id'])
         context['folders'] = Folder.objects.filter(
             workbook_id=context['workbook_id']
         ).order_by('name')

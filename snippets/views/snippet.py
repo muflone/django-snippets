@@ -18,7 +18,7 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from snippets.models import Snippet
+from snippets.models import Snippet, Folder, Workbook
 
 from utility.views import GenericView
 
@@ -31,4 +31,7 @@ class SnippetView(GenericView):
         context = super().get_context_data(**kwargs)
         context['page_title'] = 'Snippet'
         context['page_content'] = ('Snippet',)
+        context['workbook'] = Workbook.objects.get(id=context['workbook_id'])
+        context['folder'] = Folder.objects.get(id=context['folder_id'])
+        context['snippet'] = Snippet.objects.get(id=context['snippet_id'])
         return context

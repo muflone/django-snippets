@@ -32,10 +32,13 @@ urlpatterns = [
          view=views.FoldersView.as_view(),
          name='snippets.folders'),
     path('snippets/'
+         '<int:workbook_id>/'
          '<int:folder_id>/',
          view=views.SnippetsView.as_view(),
          name='snippets.snippets'),
     path('snippet/'
+         '<int:workbook_id>/'
+         '<int:folder_id>/'
          '<int:snippet_id>/',
          view=views.SnippetView.as_view(),
          name='snippets.snippet'),

@@ -15,9 +15,10 @@
     <p>{{ line }}</p>
   {% endfor %}
     <div>Go back to <a href="{% url 'snippets.workbooks' %}">workbooks</a></div>
+    <div>Go back to workbook <a href="{% url 'snippets.folders' workbook_id=workbook.pk %}">{{ workbook.name }}</a></div>
     <hr />
 
   {% for item in snippets %}
-    <div><a href="{% url 'snippets.snippet' snippet_id=item.pk %}">{{ item.name }}</a> <small>{{ item.description }}</small></div>
+    <div><a href="{% url 'snippets.snippet' workbook_id=workbook.pk folder_id=folder.pk snippet_id=item.pk %}">{{ item.name }}</a> <small>{{ item.description }}</small></div>
   {% endfor %}
 {% endblock %}
