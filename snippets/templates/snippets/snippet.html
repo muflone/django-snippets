@@ -1,0 +1,17 @@
+{% extends 'snippets/base.html' %}
+
+{% block copyright-notices %}
+    <!--
+         Project: Django Snippets
+     Description: A Django application to organize code snippets
+          Author: Fabio Castelli (Muflone) <muflone@muflone.com>
+       Copyright: 2019 Fabio Castelli
+         License: GPL-3+
+    -->
+{% endblock %}
+
+{% block content %}
+  {% for line in page_content %}
+    <p>{{ line }}</p>
+  {% endfor %}
+{% endblock %}

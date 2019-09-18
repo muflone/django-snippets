@@ -18,25 +18,17 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from django.urls import path
+from snippets.models import Snippet
 
-from . import views
+from utility.views import GenericView
 
 
-urlpatterns = [
-    path('workbooks/',
-         view=views.WorkbooksView.as_view(),
-         name='snippets.workbooks'),
-    path('folders/'
-         '<int:workbook_id>/',
-         view=views.FoldersView.as_view(),
-         name='snippets.folders'),
-    path('snippets/'
-         '<int:folder_id>/',
-         view=views.SnippetsView.as_view(),
-         name='snippets.snippets'),
-    path('snippet/'
-         '<int:snippet_id>/',
-         view=views.SnippetView.as_view(),
-         name='snippets.snippet'),
-]
+class SnippetView(GenericView):
+    """Snippet view"""
+    template_name = 'snippets/snippet.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['page_title'] = 'title'
+        context['page_content'] = ('hello world',)
+        return context
