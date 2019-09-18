@@ -36,7 +36,7 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 
 # Define routes
@@ -45,10 +45,12 @@ urlpatterns = []
 # Add i18n prefixes for sections
 urlpatterns += i18n_patterns(
     path(settings.ADMIN_URL, admin.site.urls),
+    path('/', include('snippets.urls')),
     prefix_default_language=True
 )
 
 # Add standard paths
 urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),
+    path('snippets/', include('snippets.urls')),
 ]
