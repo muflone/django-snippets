@@ -14,6 +14,7 @@
   {% for line in page_content %}
     <p>{{ line }}</p>
   {% endfor %}
+    <hr />
 
   {% for item in snippets %}
     <div><a href="{% url 'snippets.snippet' snippet_id=item.pk %}">{{ item.name }}</a> <small>{{ item.description }}</small></div>
