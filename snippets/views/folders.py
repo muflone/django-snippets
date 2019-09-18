@@ -18,5 +18,20 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from .workbooks import WorkbooksView
-from .folders import FoldersView
+from snippets.models import Folder
+
+from utility.views import GenericView
+
+
+class FoldersView(GenericView):
+    """Folders view"""
+    template_name = 'snippets/folders.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['page_title'] = 'title'
+        context['page_content'] = ('hello world',)
+        context['data'] = Folder.objects.filter(
+            workbook_id=context['workbook_id']
+        ).order_by('name')
+        return context

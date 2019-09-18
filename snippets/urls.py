@@ -27,4 +27,8 @@ urlpatterns = [
     path('workbooks/',
          view=views.WorkbooksView.as_view(),
          name='snippets.workbooks'),
+    path('folders/'
+         '<int:workbook_id>/',
+         view=views.FoldersView.as_view(),
+         name='snippets.folders'),
 ]
