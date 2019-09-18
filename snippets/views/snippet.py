@@ -32,7 +32,7 @@ class SnippetView(GenericView):
         workbook = Workbook.objects.get(id=context['workbook_id'])
         folder = Folder.objects.get(id=context['folder_id'])
         snippet = Snippet.objects.get(id=context['snippet_id'])
-        title = 'Snippet'
+        title = 'Snippet {NAME}'.format(NAME=snippet.name)
         context['page_title'] = title
         context['page_content'] = title
         context['workbook'] = workbook

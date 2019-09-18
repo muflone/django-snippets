@@ -31,7 +31,7 @@ class FolderView(GenericView):
         context = super().get_context_data(**kwargs)
         workbook = Workbook.objects.get(id=context['workbook_id'])
         folder = Folder.objects.get(id=context['folder_id'])
-        title = 'Folder'
+        title = 'Folder {NAME}'.format(NAME=folder.name)
         context['page_title'] = title
         context['page_content'] = title
         context['workbook'] = workbook

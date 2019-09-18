@@ -30,7 +30,7 @@ class WorkbookView(GenericView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         workbook = Workbook.objects.get(id=context['workbook_id'])
-        title = 'Workbook'
+        title = 'Workbook {NAME}'.format(NAME=workbook.name)
         context['page_title'] = title
         context['page_content'] = title
         context['workbook'] = workbook
