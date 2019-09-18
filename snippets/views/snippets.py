@@ -29,8 +29,8 @@ class SnippetsView(GenericView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['page_title'] = 'title'
-        context['page_content'] = ('hello world',)
+        context['page_title'] = 'Folder'
+        context['page_content'] = ('Folder',)
         context['data'] = Snippet.objects.filter(
             folder_id=context['folder_id']
         ).order_by('name')

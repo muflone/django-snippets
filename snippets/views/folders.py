@@ -29,8 +29,8 @@ class FoldersView(GenericView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['page_title'] = 'title'
-        context['page_content'] = ('hello world',)
+        context['page_title'] = 'Workbook'
+        context['page_content'] = ('Workbook',)
         context['data'] = Folder.objects.filter(
             workbook_id=context['workbook_id']
         ).order_by('name')
