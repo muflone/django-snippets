@@ -17,6 +17,6 @@
     <hr />
 
   {% for item in workbooks %}
-    <div><a href="{% url 'snippets.folders' workbook_id=item.pk %}">{{ item.name }}</a> <small>{{ item.description }}</small></div>
+    <div><a href="{% url 'snippets.workbook' workbook_id=item.pk %}">{{ item.name }}</a> <small>{{ item.description }}</small></div>
   {% endfor %}
 {% endblock %}

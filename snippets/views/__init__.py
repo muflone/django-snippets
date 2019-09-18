@@ -19,6 +19,6 @@
 ##
 
 from .index import IndexView
-from .folders import FoldersView
+from .workbook import WorkbookView
 from .snippets import SnippetsView
 from .snippet import SnippetView

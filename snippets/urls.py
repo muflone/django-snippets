@@ -27,10 +27,10 @@ urlpatterns = [
     path('',
          view=views.IndexView.as_view(),
          name='snippets.index'),
-    path('folders/'
+    path('workbook/'
          '<int:workbook_id>/',
-         view=views.FoldersView.as_view(),
-         name='snippets.folders'),
+         view=views.WorkbookView.as_view(),
+         name='snippets.workbook'),
     path('snippets/'
          '<int:workbook_id>/'
          '<int:folder_id>/',
