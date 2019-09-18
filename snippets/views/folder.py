@@ -29,11 +29,13 @@ class FolderView(GenericView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        workbook = Workbook.objects.get(id=context['workbook_id'])
+        folder = Folder.objects.get(id=context['folder_id'])
         title = 'Folder'
         context['page_title'] = title
         context['page_content'] = title
-        context['workbook'] = Workbook.objects.get(id=context['workbook_id'])
-        context['folder'] = Folder.objects.get(id=context['folder_id'])
+        context['workbook'] = workbook
+        context['folder'] = folder
         context['snippets'] = Snippet.objects.filter(
             folder_id=context['folder_id']
         ).order_by('name')

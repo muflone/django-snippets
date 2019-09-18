@@ -29,10 +29,13 @@ class SnippetView(GenericView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        workbook = Workbook.objects.get(id=context['workbook_id'])
+        folder = Folder.objects.get(id=context['folder_id'])
+        snippet = Snippet.objects.get(id=context['snippet_id'])
         title = 'Snippet'
         context['page_title'] = title
         context['page_content'] = title
-        context['workbook'] = Workbook.objects.get(id=context['workbook_id'])
-        context['folder'] = Folder.objects.get(id=context['folder_id'])
-        context['snippet'] = Snippet.objects.get(id=context['snippet_id'])
+        context['workbook'] = workbook
+        context['folder'] = folder
+        context['snippet'] = snippet
         return context
