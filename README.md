@@ -18,3 +18,4 @@ Django Snippets is a Django application to organize your code snippets
 
 * Python 3.x
 * Django 2.2.5
+* django-pygments (<https://pypi.org/project/django-pygments/>)
