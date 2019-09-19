@@ -38,4 +38,5 @@ class SnippetView(GenericView):
         context['workbook'] = workbook
         context['folder'] = folder
         context['snippet'] = snippet
+        context['load_pygments'] = True
         return context

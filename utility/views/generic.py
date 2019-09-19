@@ -31,5 +31,6 @@ class GenericView(TemplateView):
         context['product_version'] = VERSION
         context['page_title'] = ''
         context['page_content'] = ''
+        context['load_pygments'] = False
         context['data'] = None
         return context
