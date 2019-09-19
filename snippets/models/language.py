@@ -32,6 +32,10 @@ class Language(BaseModel):
     description = models.TextField(blank=True,
                                    verbose_name=pgettext_lazy('Language',
                                                               'description'))
+    lexer = models.CharField(max_length=255,
+                             default='text',
+                             verbose_name=pgettext_lazy('Language',
+                                                        'lexer'))
 
     class Meta:
         # Define the database table
