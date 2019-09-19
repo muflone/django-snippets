@@ -1,4 +1,5 @@
 {% extends 'snippets/base.html' %}
+{% load pygmentify %}
 
 {% block copyright-notices %}
     <!--
@@ -16,6 +17,8 @@
     <div>Go back to workbook <a href="{% url 'snippets.workbook' workbook_id=workbook.pk %}">{{ workbook.name }}</a></div>
     <div>Go back to folder <a href="{% url 'snippets.folder' workbook_id=workbook.pk folder_id=folder.pk %}">{{ folder.name }}</a></div>
     <hr />
-
-    <pre>{{ snippet.code }}</pre>
+    <div>Language: {{ language.name }} ({{ language.lexer }})</div>
+  {% pygment %}
+    <pre lang="{{ language.lexer }}">{{ snippet.code }}</pre>
+  {% endpygment %}
 {% endblock %}
