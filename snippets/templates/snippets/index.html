@@ -11,13 +11,19 @@
 {% endblock %}
 
 {% block content %}
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item active" aria-current="page">Workbooks</li>
-      </ol>
-    </nav>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Workbooks</li>
+          </ol>
+        </nav>
 
-  {% for item in workbooks %}
-    <div><a href="{% url 'snippets.workbook' workbook_id=item.pk %}">{{ item.name }}</a> <small>{{ item.description }}</small></div>
-  {% endfor %}
+  {% if workbooks %}
+        <ul>
+    {% for item in workbooks %}
+          <li><a href="{% url 'snippets.workbook' workbook_id=item.pk %}">{{ item.name }}</a> <small>{{ item.description }}</small></li>
+    {% endfor %}
+        </ul>
+  {% else %}
+        <div class="alert alert-warning" role="alert">There are no workbooks</div>
+  {% endif %}
 {% endblock %}

@@ -11,14 +11,20 @@
 {% endblock %}
 
 {% block content %}
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{% url 'snippets.index' %}">Workbooks</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Workbook: {{ workbook.name }}</li>
-      </ol>
-    </nav>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'snippets.index' %}">Workbooks</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Workbook: {{ workbook.name }}</li>
+          </ol>
+        </nav>
 
-  {% for item in folders %}
-    <div><a href="{% url 'snippets.folder' workbook_id=workbook.pk folder_id=item.pk %}">{{ item.name }}</a> <small>{{ item.description }}</small></div>
-  {% endfor %}
+  {% if folders %}
+        <ul>
+    {% for item in folders %}
+          <li><a href="{% url 'snippets.folder' workbook_id=workbook.pk folder_id=item.pk %}">{{ item.name }}</a> <small>{{ item.description }}</small></li>
+    {% endfor %}
+        </ul>
+  {% else %}
+        <div class="alert alert-warning" role="alert">There are no folders into this workbook</div>
+  {% endif %}
 {% endblock %}

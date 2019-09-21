@@ -11,15 +11,21 @@
 {% endblock %}
 
 {% block content %}
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{% url 'snippets.index' %}">Workbooks</a></li>
-        <li class="breadcrumb-item"><a href="{% url 'snippets.workbook' workbook_id=workbook.pk %}">Workbook: {{ workbook.name }}</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Folder: {{ folder.name }}</li>
-      </ol>
-    </nav>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'snippets.index' %}">Workbooks</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'snippets.workbook' workbook_id=workbook.pk %}">Workbook: {{ workbook.name }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Folder: {{ folder.name }}</li>
+          </ol>
+        </nav>
 
-  {% for item in snippets %}
-    <div><a href="{% url 'snippets.snippet' workbook_id=workbook.pk folder_id=folder.pk snippet_id=item.pk %}">{{ item.name }}</a> <small>{{ item.description }}</small></div>
-  {% endfor %}
+  {% if snippets %}
+        <ul>
+    {% for item in snippets %}
+          <li><a href="{% url 'snippets.snippet' workbook_id=workbook.pk folder_id=folder.pk snippet_id=item.pk %}">{{ item.name }}</a> <small>{{ item.description }}</small></li>
+    {% endfor %}
+        </ul>
+  {% else %}
+        <div class="alert alert-warning" role="alert">There are no snippets into this folder</div>
+  {% endif %}
 {% endblock %}

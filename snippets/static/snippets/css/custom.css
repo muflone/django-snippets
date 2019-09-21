@@ -2,3 +2,7 @@
 .breadcrumb-item + .breadcrumb-item::before {
     content: "›";
 }
+
+div.highlight {
+    padding: 1rem 0rem;
+}

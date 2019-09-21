@@ -12,17 +12,31 @@
 {% endblock %}
 
 {% block content %}
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{% url 'snippets.index' %}">Workbooks</a></li>
-        <li class="breadcrumb-item"><a href="{% url 'snippets.workbook' workbook_id=workbook.pk %}">Workbook: {{ workbook.name }}</a></li>
-        <li class="breadcrumb-item"><a href="{% url 'snippets.folder' workbook_id=workbook.pk folder_id=folder.pk %}">Folder: {{ folder.name }}</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Snippet: {{ snippet.name }}</li>
-      </ol>
-    </nav>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+           <li class="breadcrumb-item"><a href="{% url 'snippets.index' %}">Workbooks</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'snippets.workbook' workbook_id=workbook.pk %}">Workbook: {{ workbook.name }}</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'snippets.folder' workbook_id=workbook.pk folder_id=folder.pk %}">Folder: {{ folder.name }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Snippet: {{ snippet.name }}</li>
+          </ol>
+        </nav>
 
-    <div>Language: {{ language.name }} ({{ language.lexer }})</div>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-1">Name</div>
+            <div class="col-sm">{{ snippet.name }}</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-1">Description</div>
+            <div class="col-sm">{{ snippet.description }}</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-1">Language</div>
+            <div class="col-sm">{{ language.name }}</div>
+          </div>
+          <div>Code</div>
   {% pygment %}
-    <pre lang="{{ language.lexer }}">{{ snippet.code }}</pre>
+          <pre lang="{{ language.lexer }}">{{ snippet.code }}</pre>
   {% endpygment %}
+        </div>
 {% endblock %}
