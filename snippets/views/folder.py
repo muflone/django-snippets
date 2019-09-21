@@ -20,10 +20,10 @@
 
 from snippets.models import Snippet, Workbook, Folder
 
-from utility.views import GenericView
+from . import BaseView
 
 
-class FolderView(GenericView):
+class FolderView(BaseView):
     """Folder view"""
     template_name = 'snippets/folder.html'
 

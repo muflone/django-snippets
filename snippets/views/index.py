@@ -20,10 +20,10 @@
 
 from snippets.models import Workbook
 
-from utility.views import GenericView
+from . import BaseView
 
 
-class IndexView(GenericView):
+class IndexView(BaseView):
     """Index view"""
     template_name = 'snippets/index.html'
 

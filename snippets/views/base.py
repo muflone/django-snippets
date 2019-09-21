@@ -18,27 +18,17 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from snippets.models import Snippet, Folder, Workbook
+from snippets.models import Workbook
 
-from . import BaseView
+from utility.views import GenericView
 
 
-class SnippetView(BaseView):
-    """Snippet view"""
-    template_name = 'snippets/snippet.html'
-
+class BaseView(GenericView):
+    """Base view"""
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        workbook = Workbook.objects.get(id=context['workbook_id'])
-        folder = Folder.objects.get(id=context['folder_id'])
-        snippet = Snippet.objects.get(id=context['snippet_id'])
-        title = 'Snippet {NAME}'.format(NAME=snippet.name)
-        context['page_title'] = title
-        context['page_content'] = title
-        context['workbook'] = workbook
-        context['folder'] = folder
-        context['snippet'] = snippet
-        context['language'] = (snippet.language if snippet.language
-                                                else workbook.language)
-        context['load_pygments'] = True
+        context['load_bootstrap'] = True
+        context['load_jquery'] = True
+        context['load_sidebar'] = True
+        context['workbooks'] = Workbook.objects.all().order_by('name')
         return context

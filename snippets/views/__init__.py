@@ -18,6 +18,7 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
+from .base import BaseView
 from .index import IndexView
 from .workbook import WorkbookView
 from .folder import FolderView
