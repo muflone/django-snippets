@@ -3,27 +3,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta nema="product" content="{{ product_name }}">
-    <meta nema="version" content="{{ product_version }}">
-    <meta name="author" content="Fabio Castelli (Muflone)">
-    <title>{{ page_title }}</title>
-    <!-- Favicon -->
-  {% if load_pygments %}
-    <link rel="stylesheet" type="text/css" href="{% static 'django_pygments/css/pygments_default.css' %}" />
-  {% endif %}
-    <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="{% static 'snippets/css/bootstrap.min.css' %}" />
-    <script href="{% static 'snippets/js/bootstrap.min.js' %}"></script>
-    <!-- Custom styles -->
-    <link rel="stylesheet" type="text/css" href="{% static 'snippets/css/custom.css' %}" />
+{% include 'snippets/includes/header.html' %}
   </head>
   <body>
+    <div class="wrapper">
+{% include 'snippets/includes/sidebar.html' %}
+      <!-- Content -->
+      <div id="content">
 {% block content %}
-    {{ page_content }}
+      {{ page_content }}
 {% endblock %}
+      </div>
+    </div>
+{% include 'snippets/includes/footer.html' %}
   </body>
 </html>

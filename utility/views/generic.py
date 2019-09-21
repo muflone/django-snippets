@@ -32,5 +32,8 @@ class GenericView(TemplateView):
         context['page_title'] = ''
         context['page_content'] = ''
         context['load_pygments'] = False
+        context['load_bootstrap'] = False
+        context['load_jquery'] = False
+        context['load_sidebar'] = False
         context['data'] = None
         return context

@@ -1,0 +1,9 @@
+{% load static %}
+{% if load_jquery %}
+    <!-- jQuery JS Slim version (=without AJAX) -->
+    <script src="{% static 'snippets/js/jquery-3.4.1.slim.min.js' %}"></script>
+{% endif %}
+{% if load_bootstrap %}
+    <!-- Bootstrap JS -->
+    <script src="{% static 'snippets/js/bootstrap.min.js' %}"></script>
+{% endif %}
