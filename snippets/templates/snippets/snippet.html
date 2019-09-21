@@ -12,11 +12,15 @@
 {% endblock %}
 
 {% block content %}
-    <p>{{ page_content }}</p>
-    <div>Go back to <a href="{% url 'snippets.index' %}">Index</a></div>
-    <div>Go back to workbook <a href="{% url 'snippets.workbook' workbook_id=workbook.pk %}">{{ workbook.name }}</a></div>
-    <div>Go back to folder <a href="{% url 'snippets.folder' workbook_id=workbook.pk folder_id=folder.pk %}">{{ folder.name }}</a></div>
-    <hr />
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'snippets.index' %}">Workbooks</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'snippets.workbook' workbook_id=workbook.pk %}">Workbook: {{ workbook.name }}</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'snippets.folder' workbook_id=workbook.pk folder_id=folder.pk %}">Folder: {{ folder.name }}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Snippet: {{ snippet.name }}</li>
+      </ol>
+    </nav>
+
     <div>Language: {{ language.name }} ({{ language.lexer }})</div>
   {% pygment %}
     <pre lang="{{ language.lexer }}">{{ snippet.code }}</pre>

@@ -11,10 +11,13 @@
 {% endblock %}
 
 {% block content %}
-    <p>{{ page_content }}</p>
-    <div>Go back to <a href="{% url 'snippets.index' %}">Index</a></div>
-    <div>Go back to workbook <a href="{% url 'snippets.workbook' workbook_id=workbook.pk %}">{{ workbook.name }}</a></div>
-    <hr />
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'snippets.index' %}">Workbooks</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'snippets.workbook' workbook_id=workbook.pk %}">Workbook: {{ workbook.name }}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Folder: {{ folder.name }}</li>
+      </ol>
+    </nav>
 
   {% for item in snippets %}
     <div><a href="{% url 'snippets.snippet' workbook_id=workbook.pk folder_id=folder.pk snippet_id=item.pk %}">{{ item.name }}</a> <small>{{ item.description }}</small></div>
