@@ -23,18 +23,20 @@
 
         <div class="container-fluid">
           <div class="row">
-            <div class="col-sm-1">Name</div>
-            <div class="col-sm">{{ snippet.name }}</div>
+            <h5 class="col-sm-1">Name</h5>
+            <h5 class="col-sm">{{ snippet.name }}</h5>
           </div>
           <div class="row">
-            <div class="col-sm-1">Description</div>
-            <div class="col-sm">{{ snippet.description }}</div>
+            <h5 class="col-sm-1">Description</h5>
+            <h5 class="col-sm">{{ snippet.description }}</h5>
           </div>
           <div class="row">
-            <div class="col-sm-1">Language</div>
-            <div class="col-sm">{{ language.name }}</div>
+            <h5 class="col-sm-1">Language</h5>
+            <h5 class="col-sm">{{ language.name }}</h5>
           </div>
-          <div>Code</div>
+          <div class="row">
+            <h5 class="col-sm-1">Code</h5>
+          </div>
   {% pygment %}
           <pre lang="{{ language.lexer }}">{{ snippet.code }}</pre>
   {% endpygment %}

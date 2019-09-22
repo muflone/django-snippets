@@ -6,3 +6,11 @@
 div.highlight {
     padding: 1rem 0rem;
 }
+
+a {
+    color: #288efd;
+}
+
+.container-fluid {
+    padding: 1rem 2rem;
+}
