@@ -27,7 +27,7 @@ register = template.Library()
 @register.filter
 def get_folder_url_by_pk(folder):
     """
-    Get the workbook primary key by its name
+    Get the folder url by its primary key
     """
     return reverse('snippets.folder',
                    kwargs={'workbook_id': folder.workbook_id,
