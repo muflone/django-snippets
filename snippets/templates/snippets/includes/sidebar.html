@@ -1,4 +1,5 @@
 {% load get_workbook_pk_by_name %}
+{% load get_workbook_url_by_pk %}
 {% load get_folder_url_by_pk %}
       <!-- Sidebar -->
       <nav id="sidebar">
@@ -7,19 +8,19 @@
         </div>
 
         <ul class="list-unstyled">
+          <li><a href="{% url 'snippets.index' %}">Index</a></li>
 {% for workbook_name, folders_list in all_folders.items %}
           <li>
             <a href="#workbook_{{ all_workbooks | get_workbook_pk_by_name:workbook_name}}"
                data-toggle="collapse" aria-expanded="false"
                {% if all_folders %}class="dropdown-toggle"{% endif %}>{{ workbook_name }}</a>
   {# Add children folders #}
-  {% if all_folders %}
             <ul class="collapse list-unstyled" id="workbook_{{ all_workbooks | get_workbook_pk_by_name:workbook_name }}">
-    {% for folder in folders_list %}
+              <li><a href="{{ all_workbooks | get_workbook_url_by_pk:workbook_name }}">Workbook Index</a></li>
+  {% for folder in folders_list %}
               <li><a href="{{ folder | get_folder_url_by_pk }}">{{ folder.name }}</a></li>
-    {% endfor %}
+  {% endfor %}
             </ul>
-  {% endif %}
           </li>
 {% endfor %}
         </ul>
