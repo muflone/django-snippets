@@ -17,9 +17,9 @@
           </ol>
         </nav>
 
-  {% if workbooks %}
+  {% if all_workbooks %}
         <ul>
-    {% for item in workbooks %}
+    {% for item in all_workbooks %}
           <li><a href="{% url 'snippets.workbook' workbook_id=item.pk %}">{{ item.name }}</a> <small>{{ item.description }}</small></li>
     {% endfor %}
         </ul>

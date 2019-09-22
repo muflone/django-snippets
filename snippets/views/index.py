@@ -18,8 +18,6 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from snippets.models import Workbook
-
 from . import BaseView
 
 
@@ -32,5 +30,4 @@ class IndexView(BaseView):
         title = 'Index'
         context['page_title'] = title
         context['page_content'] = title
-        context['workbooks'] = Workbook.objects.all().order_by('name')
         return context

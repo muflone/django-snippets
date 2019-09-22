@@ -18,4 +18,4 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from .generic import GenericView
+from .generic import GenericView                                  # noqa: F401

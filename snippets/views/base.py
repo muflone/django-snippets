@@ -30,5 +30,5 @@ class BaseView(GenericView):
         context['load_bootstrap'] = True
         context['load_jquery'] = True
         context['load_sidebar'] = True
-        context['workbooks'] = Workbook.objects.all().order_by('name')
+        context['all_workbooks'] = Workbook.objects.all().order_by('name')
         return context

@@ -18,8 +18,8 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from .base import BaseView
-from .index import IndexView
-from .workbook import WorkbookView
-from .folder import FolderView
-from .snippet import SnippetView
+from .base import BaseView                                        # noqa: F401
+from .index import IndexView                                      # noqa: F401
+from .workbook import WorkbookView                                # noqa: F401
+from .folder import FolderView                                    # noqa: F401
+from .snippet import SnippetView                                  # noqa: F401
