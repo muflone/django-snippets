@@ -17,22 +17,3 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
-
-from snippets.models import Workbook
-
-from utility.views import GenericView
-
-
-class BaseView(GenericView):
-    """Base view"""
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['load_bootstrap'] = True
-        context['load_jquery'] = True
-        context['load_sidebar'] = True
-        context['all_workbooks'] = Workbook.objects.all().order_by('name')
-        context['all_folders'] = dict([(workbook.name,
-                                       list(workbook.folder_set.all()))
-                                       for workbook
-                                       in context['all_workbooks']])
-        return context

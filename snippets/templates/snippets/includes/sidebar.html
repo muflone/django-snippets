@@ -1,17 +1,26 @@
+{% load get_workbook_pk_by_name %}
+{% load get_folder_url_by_pk %}
       <!-- Sidebar -->
       <nav id="sidebar">
         <div class="sidebar-header">
             <h3>{{ product_name }}</h3>
         </div>
 
-        <ul class="list-unstyled components">
-          <li class="active">
-            <a href="#workbook_x" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-            <ul class="collapse list-unstyled" id="workbook_x">
-              <li><a href="#">Home 1</a></li>
-              <li><a href="#">Home 2</a></li>
-              <li><a href="#">Home 3</a></li>
+        <ul class="list-unstyled">
+{% for workbook_name, folders_list in all_folders.items %}
+          <li>
+            <a href="#workbook_{{ all_workbooks | get_workbook_pk_by_name:workbook_name}}"
+               data-toggle="collapse" aria-expanded="false"
+               {% if all_folders %}class="dropdown-toggle"{% endif %}>{{ workbook_name }}</a>
+  {# Add children folders #}
+  {% if all_folders %}
+            <ul class="collapse list-unstyled" id="workbook_{{ all_workbooks | get_workbook_pk_by_name:workbook_name }}">
+    {% for folder in folders_list %}
+              <li><a href="{{ folder | get_folder_url_by_pk }}">{{ folder.name }}</a></li>
+    {% endfor %}
             </ul>
+  {% endif %}
           </li>
+{% endfor %}
         </ul>
       </nav>
