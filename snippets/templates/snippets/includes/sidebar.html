@@ -18,8 +18,8 @@
   {# Add children folders #}
             <ul class="list-unstyled collapse {% if workbook.name == workbook_name %}show{% endif %}" id="workbook_{{ all_workbooks | get_workbook_pk_by_name:workbook_name }}">
               <li><a href="{{ all_workbooks | get_workbook_url_by_pk:workbook_name }}">Workbook Index</a></li>
-  {% for folder in folders_list %}
-              <li><a href="{{ folder | get_folder_url_by_pk }}">{{ folder.name }}</a></li>
+  {% for item in folders_list %}
+              <li><a href="{{ item | get_folder_url_by_pk }}">{{ item.name }}</a></li>
   {% endfor %}
             </ul>
           </li>
