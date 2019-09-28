@@ -9,17 +9,25 @@
         </div>
 
         <ul class="list-unstyled">
-          <li><a href="{% url 'snippets.index' %}">Index</a></li>
+          <li>
+            <a {% if workbook is null %}id="current_workbook"{% endif %}
+               href="{% url 'snippets.index' %}">Index</a>
+          </li>
 {% for workbook_name, folders_list in all_folders.items %}
           <li>
-            <a href="#workbook_{{ all_workbooks | get_workbook_pk_by_name:workbook_name}}"
-               data-toggle="collapse" aria-expanded="{% if workbook.name == workbook_name %}true{% else %}false{% endif %}"
-               {% if all_folders %}class="dropdown-toggle"{% endif %}>{{ workbook_name }}</a>
+            <a {% if workbook.name == workbook_name %}id="current_workbook"{% endif %}
+               {% if all_folders %}class="dropdown-toggle"{% endif %}
+               data-toggle="collapse"
+               aria-expanded="{% if workbook.name == workbook_name %}true{% else %}false{% endif %}"
+               href="#workbook_{{ all_workbooks | get_workbook_pk_by_name:workbook_name}}">{{ workbook_name }}</a>
   {# Add children folders #}
-            <ul class="list-unstyled collapse {% if workbook.name == workbook_name %}show{% endif %}" id="workbook_{{ all_workbooks | get_workbook_pk_by_name:workbook_name }}">
-              <li><a href="{{ all_workbooks | get_workbook_url_by_pk:workbook_name }}">Workbook Index</a></li>
+            <ul class="list-unstyled collapse {% if workbook.name == workbook_name %}show{% endif %}"
+                id="workbook_{{ all_workbooks | get_workbook_pk_by_name:workbook_name }}">
+              <li><a {% if workbook.name == workbook_name and folder is null %}id="current_folder"{% endif %}
+                 href="{{ all_workbooks | get_workbook_url_by_pk:workbook_name }}">Workbook Index</a></li>
   {% for item in folders_list %}
-              <li><a href="{{ item | get_folder_url_by_pk }}">{{ item.name }}</a></li>
+              <li><a {% if folder.pk == item.pk %} id="current_folder"{% endif %}
+                href="{{ item | get_folder_url_by_pk }}">{{ item.name }}</a></li>
   {% endfor %}
             </ul>
           </li>

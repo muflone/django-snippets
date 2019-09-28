@@ -24,6 +24,15 @@
     background: #e9ecef;
 }
 
+#sidebar a#current_workbook {
+    font-weight: bold;
+    background: powderblue;
+}
+
+#sidebar a#current_folder {
+    background: lightcyan;
+}
+
 #sidebar a,
 #sidebar a:hover,
 #sidebar a:focus {
@@ -50,7 +59,7 @@
 
 #sidebar ul li a:hover {
     color: white;
-    background: #288efd;
+    background: #288efd !important;
 }
 
 a[data-toggle="collapse"] {
